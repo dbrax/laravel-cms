@@ -4,15 +4,14 @@ namespace Epmnzava\LaravelCms\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class SubMenu extends Model{
+class SubMenu extends Model
+{
 
-    public $guarded=[];
+    public $guarded = [];
 
-    public function Menu(){
+    public function Menu()
+    {
 
-        return $this->belongsTo(Menu::class,"menuid");
+        return $this->belongsTo(Menu::class, "menuid");
     }
-
-
-
 }
