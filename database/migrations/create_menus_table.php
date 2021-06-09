@@ -1,0 +1,47 @@
+<?php
+
+
+/**
+ * Author: Emmanuel Paul Mnzava
+ * Twitter: @epmnzava
+ * Github:https://github.com/dbrax/laravel-cms
+ * Email: epmnzava@gmail.com
+ * 
+ */
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreateBillingPaymentTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('menus', function (Blueprint $table) {
+            $table->bigIncrements('id');
+
+            $table->string('menu');
+            $table->string('menuimage')->nullable();
+            $table->string('slug')->nullable();
+            $table->integer('ispage')->default(0);
+            $table->integer('pageid')->nullable();
+
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('menus');
+    }
+}
