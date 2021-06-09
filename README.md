@@ -1,4 +1,3 @@
-# Very short description of the package
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/epmnzava/laravel-cms.svg?style=flat-square)](https://packagist.org/packages/epmnzava/laravel-cms)
 [![Total Downloads](https://img.shields.io/packagist/dt/epmnzava/laravel-cms.svg?style=flat-square)](https://packagist.org/packages/epmnzava/laravel-cms)
