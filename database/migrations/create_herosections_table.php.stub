@@ -1,0 +1,49 @@
+<?php
+
+
+/**
+ * Author: Emmanuel Paul Mnzava
+ * Twitter: @epmnzava
+ * Github:https://github.com/dbrax/laravel-cms
+ * Email: epmnzava@gmail.com
+ * 
+ */
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreateHeroSectionTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('hero_sections', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('title')->nullable();
+            $table->string('caption')->nullable();
+            $table->string('section_background_image')->nullable();
+            $table->string('cta_link')->nullable();
+            $table->string('cta_title')->nullable();
+            $table->string('meta_data')->nullable(); // could be where the section to be placed
+
+
+          
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('hero_sections');
+    }
+}

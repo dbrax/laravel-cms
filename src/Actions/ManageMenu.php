@@ -20,6 +20,7 @@ class ManageMenu
     public function createMenu($menu, $menuimagepath = "", $ispage = 0, $pageid = 0)
     {
 
+
         $this->menu = Menu::create([
             "menu" => $menu,
             "menuimage" => $menuimagepath,
@@ -29,5 +30,41 @@ class ManageMenu
 
 
         ]);
+
+        return $this;
+    }
+
+    public  function deleteMenu($menuid)
+    {
+        $this->menu = Menu::find($menuid);
+        $this->menu->delete();
+
+        return $this;
+    }
+
+
+    public  function editMenu(
+        $menuid,
+        $menu,
+        $menuimagepath = "",
+        $ispage = 0,
+        $pageid = 0
+    ) {
+        $menu = Menu::find($menuid);
+        $menu->menu = $menu;
+        $menu->menuimage = $menuimagepath;
+        $menu->slug = Str::slug($menu);
+        $menu->ispage = $ispage;
+        $menu->pageid = $pageid;
+        $menu->save();
+
+
+
+        return $menu;
+    }
+
+
+    public function addSubMenu()
+    {
     }
 }

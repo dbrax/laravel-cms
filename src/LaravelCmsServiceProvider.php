@@ -24,6 +24,32 @@ class LaravelCmsServiceProvider extends ServiceProvider
                 __DIR__.'/../config/config.php' => config_path('laravel-cms.php'),
             ], 'config');
 
+            $this->commands([
+             
+            ]);
+
+            
+                        //publishing migrations here..
+                        if (!class_exists('CreateMediaTable') && !class_exists('CreateMenusTable') && !class_exists('CreatePagesTable') && !class_exists('CreateSubMenusTable') && !class_exists('CreateSlidersTable') && !class_exists('CreateHeroSectionTable')) {
+                            $this->publishes([
+            
+                                __DIR__ . '/../database/migrations/create_herosections_table.php.stub' => database_path('migrations/' . date('Y_m_d_His', time()) . '_create_herosections_table.php'),
+            
+                                __DIR__ . '/../database/migrations/create_medias_table.php.stub' => database_path('migrations/' . date('Y_m_d_His', time()) . '_create_medias_table.php'),
+            
+                                __DIR__ . '/../database/migrations/create_menus_table.php.stub' => database_path('migrations/' . date('Y_m_d_His', time()) . '_create_menus_table.php'),
+
+
+
+                                __DIR__ . '/../database/migrations/create_pages_table.php.stub' => database_path('migrations/' . date('Y_m_d_His', time()) . '_create_pages_table.php'),
+                                __DIR__ . '/../database/migrations/create_sliders_table.php.stub' => database_path('migrations/' . date('Y_m_d_His', time()) . '_create_sliders_table.php'),
+                                __DIR__ . '/../database/migrations/create_submenus_table.php.stub' => database_path('migrations/' . date('Y_m_d_His', time()) . '_create_submenus_table.php'),
+
+            
+            
+                            ], 'migrations');
+                        }
+
             // Publishing the views.
             /*$this->publishes([
                 __DIR__.'/../resources/views' => resource_path('views/vendor/laravel-cms'),

@@ -1,0 +1,49 @@
+<?php
+
+
+/**
+ * Author: Emmanuel Paul Mnzava
+ * Twitter: @epmnzava
+ * Github:https://github.com/dbrax/laravel-cms
+ * Email: epmnzava@gmail.com
+ * 
+ */
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreateMediaTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('medias', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('title')->nullable();
+            $table->string('caption')->nullable();
+            $table->string('image')->nullable();
+            $table->string('link')->nullable();
+            $table->string('meta_data')->nullable(); // could be where the section to be placed
+            $table->string('mime_type')->nullable();
+
+
+          
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('medias');
+    }
+}

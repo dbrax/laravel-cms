@@ -1,0 +1,51 @@
+<?php
+
+
+/**
+ * Author: Emmanuel Paul Mnzava
+ * Twitter: @epmnzava
+ * Github:https://github.com/dbrax/laravel-cms
+ * Email: epmnzava@gmail.com
+ * 
+ */
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreatePagesTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('pages', function (Blueprint $table) {
+            $table->bigIncrements('id');
+
+            $table->string('title')->nullable();
+            $table->text("description")->nullable();
+            $table->string("tagline")->nullable();
+            $table->string("featured_image")->nullable();
+            $table->text("pagecontent")->nullable();
+            $table->string("pagecategory")->nullable();
+            $table->integer("pagecategory")->nullable();
+            $table->string('file')->nullable();
+
+            $table->string("slug")->nullable();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('pages');
+    }
+}
