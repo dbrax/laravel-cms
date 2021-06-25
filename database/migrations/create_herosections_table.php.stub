@@ -30,7 +30,7 @@ class CreateHeroSectionsTable extends Migration
             $table->string('cta_link')->nullable();
             $table->string('cta_title')->nullable();
             $table->string('meta_data')->nullable(); // could be where the section to be placed
-
+            $table->string('page')->nullable(); // could be where the section to be placed
 
           
             $table->timestamps();
