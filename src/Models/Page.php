@@ -3,17 +3,32 @@
 namespace Epmnzava\LaravelCms\Models;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Spatie\Translatable\HasTranslations;
 
 class Page extends Model
 {
 
-    public $guarded = [];
+  use HasTranslations;
 
-  /*  public function subMenus()
-    {
+  protected $guarded = [];
 
-        return $this->hasMany(SubMenu::class, "menuid");
-    }
-    */
+  public $translatable = ['title', 'description', 'tagline', 'caption', 'content', 'slug'];
+
+  public function media()
+  {
+
+    return $this->hasMany(PageMedia::class, 'pageid');
+  }
+
+  public function buttons()
+  {
+
+    return $this->hasMany(PageButton::class, 'pageid');
+  }
+
+  public function pagetype()
+  {
+
+    return $this->belongsTo(PageType::class, 'pagetype');
+  }
 }

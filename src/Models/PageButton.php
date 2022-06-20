@@ -5,13 +5,12 @@ namespace Epmnzava\LaravelCms\Models;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 
-
-class Slider extends Model
+class PageButton extends Model
 {
 
     use HasTranslations;
 
-    public $guarded = [];
+    protected $guarded = [];
 
-    public $translatable = ['title', 'image', 'description'];
+    public $translatable = ['label'];
 }

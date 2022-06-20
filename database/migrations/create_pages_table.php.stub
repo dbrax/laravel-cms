@@ -29,11 +29,7 @@ class CreatePagesTable extends Migration
             $table->text("description")->nullable();
             $table->string("tagline")->nullable();
             $table->string("featured_image")->nullable();
-            $table->text("pagecontent")->nullable();
-            $table->string("pagecategoryname")->nullable();
-            $table->integer("pagecategory")->nullable();
-            $table->string('file')->nullable();
-
+            $table->text("content")->nullable();
             $table->string("slug")->nullable();
             $table->timestamps();
         });
